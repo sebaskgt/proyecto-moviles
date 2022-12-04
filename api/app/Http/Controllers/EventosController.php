@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventosRequest;
+use App\Http\Requests\EventoRequest;
 
 class EventosController extends Controller
 {
@@ -56,7 +57,7 @@ class EventosController extends Controller
      * @param  \App\Models\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function update(EventosRequest $request, Evento $evento)
+    public function update(EventoRequest $request, Evento $evento)
     {
 
         $evento->idEvento = $request->idEvento;
