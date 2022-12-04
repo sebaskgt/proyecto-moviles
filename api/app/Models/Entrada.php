@@ -14,6 +14,6 @@ class Entrada extends Model
     public $timestamps = false;
 
     public function evento() {
-        return $this->belongsTo(Evento::class,'cod_evento');
+        return $this->belongsTo(Evento::class,'idEvento');
     }
 }

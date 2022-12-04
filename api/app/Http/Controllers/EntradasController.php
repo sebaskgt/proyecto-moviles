@@ -14,10 +14,9 @@ class EntradasController extends Controller {
 
     public function store(EntradasRequest $request) {
         $entrada = new Entrada();
-        $entrada->cod_evento = $request->cod_evento;
+        $entrada->idEvento = $request->idEvento;
         $entrada->numero_entrada = $request->numero_entrada;
         $entrada->cliente_id = $request->cliente_id;
-        $entrada->precio = $request->precio;
         $entrada->save();
         return $entrada;
     }
@@ -28,10 +27,9 @@ class EntradasController extends Controller {
 
     /*
     public function update(Request $request, Entrada $entrada) {
-        $entrada->cod_evento = $request->cod_evento;
+        $entrada->idEvento = $request->idEvento;
         $entrada->numero_entrada = $request->numero_entrada;
         $entrada->cliente_id = $request->cliente_id;
-        $entrada->precio = $request->precio;
         $entrada->save();
         return $entrada;
     }

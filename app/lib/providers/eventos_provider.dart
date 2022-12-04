@@ -14,8 +14,14 @@ class EventosProvider {
     }
   }
 
-  Future<LinkedHashMap<String, dynamic>> agregarEvento(String cod_evento,
-      String nombre, DateTime fecha_evento, int estado) async {
+  Future<LinkedHashMap<String, dynamic>> agregarEvento(
+      String idEvento,
+      String nombre,
+      String descripcion,
+      String estado,
+      DateTime fecha_evento,
+      int entradas,
+      int precio) async {
     var respuesta = await http.post(
       Uri.parse(apiURL + '/eventos'),
       headers: <String, String>{
@@ -23,25 +29,27 @@ class EventosProvider {
         'Accept': 'application/json',
       },
       body: jsonEncode(<String, dynamic>{
-        'cod_evento': cod_evento,
+        'idEvento': idEvento,
         'nombre': nombre,
-        'fecha_evento': fecha_evento,
+        'descripcion': descripcion,
         'estado': estado,
+        'fecha_evento': fecha_evento,
+        'entradas': entradas,
+        'precio': precio,
       }),
     );
 
     return json.decode(respuesta.body);
   }
 
-  Future<bool> borrarEvento(String cod_evento) async {
+  Future<bool> borrarEvento(String idEvento) async {
     var respuesta =
-        await http.delete(Uri.parse(apiURL + '/eventos/' + cod_evento));
+        await http.delete(Uri.parse(apiURL + '/eventos/' + idEvento));
     return respuesta.statusCode == 200;
   }
 
-  Future<LinkedHashMap<String, dynamic>> getEvento(String cod_evento) async {
-    var respuesta =
-        await http.get(Uri.parse(apiURL + '/eventos/' + cod_evento));
+  Future<LinkedHashMap<String, dynamic>> getEvento(String idEvento) async {
+    var respuesta = await http.get(Uri.parse(apiURL + '/eventos/' + idEvento));
     if (respuesta.statusCode == 200) {
       return json.decode(respuesta.body);
     } else {
@@ -50,22 +58,29 @@ class EventosProvider {
   }
 
   Future<LinkedHashMap<String, dynamic>> editarEvento(
-      String cod_evento_actual,
-      String cod_evento_nuevo,
-      String nombre,
-      DateTime fecha_evento,
-      int estado) async {
+    String idEvento_actual,
+    String idEvento_nuevo,
+    String nombre,
+    String descripcion,
+    String estado,
+    DateTime fecha_evento,
+    int entradas,
+    int precio,
+  ) async {
     var respuesta = await http.put(
-      Uri.parse(apiURL + '/eventos/' + cod_evento_actual),
+      Uri.parse(apiURL + '/eventos/' + idEvento_actual),
       headers: <String, String>{
         'Content-type': 'application/json',
         'Accept': 'application/json',
       },
       body: jsonEncode(<String, dynamic>{
-        'cod_evento': cod_evento_nuevo,
+        'idEvento': idEvento_nuevo,
         'nombre': nombre,
-        'fecha_evento': fecha_evento,
+        'descripcion': descripcion,
         'estado': estado,
+        'fecha_evento': fecha_evento,
+        'entradas': entradas,
+        'precio': precio,
       }),
     );
 

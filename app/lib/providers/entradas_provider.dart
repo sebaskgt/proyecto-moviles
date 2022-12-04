@@ -16,8 +16,8 @@ class EventosProvider {
     }
   }
 
-  Future<LinkedHashMap<String, dynamic>> agregarEntrada(String cod_evento,
-      int numero_entrada, String cliente_id, int precio) async {
+  Future<LinkedHashMap<String, dynamic>> agregarEntrada(
+      String idEvento, int numero_entrada, String cliente_id) async {
     var respuesta = await http.post(
       Uri.parse(apiURL + '/entradas'),
       headers: <String, String>{
@@ -25,10 +25,9 @@ class EventosProvider {
         'Accept': 'application/json',
       },
       body: jsonEncode(<String, dynamic>{
-        'cod_evento': cod_evento,
+        'idEvento': idEvento,
         'numero_entrada': numero_entrada,
         'cliente_id': cliente_id,
-        'precio': precio,
       }),
     );
 
@@ -36,9 +35,9 @@ class EventosProvider {
   }
 
   Future<LinkedHashMap<String, dynamic>> getEntrada(
-      String cod_evento, int numero_entrada) async {
+      String idEvento, int numero_entrada) async {
     var respuesta = await http.get(Uri.parse(
-        apiURL + '/entradas/' + numero_entrada.toString() + cod_evento));
+        apiURL + '/entradas/' + numero_entrada.toString() + idEvento));
     if (respuesta.statusCode == 200) {
       return json.decode(respuesta.body);
     } else {

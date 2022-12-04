@@ -14,14 +14,13 @@ class CreateEntradasTable extends Migration
     public function up()
     {
         Schema::create('entradas', function (Blueprint $table) {
-            $table->string('cod_evento',20);
+            $table->string('idEvento',8);
             $table->integer('numero_entrada');
-            $table->primary(['cod_evento','numero_entrada']);
+            $table->primary(['idEvento','numero_entrada']);
 
             $table->string('cliente_id',100);
-            $table->integer('precio');
 
-            $table->foreign('cod_evento')->references('cod_evento')->on('eventos');
+            $table->foreign('idEvento')->references('idEvento')->on('eventos');
         });
     }
 
