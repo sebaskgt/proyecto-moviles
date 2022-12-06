@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tickets/models/noticias.dart';
 import 'package:tickets/provider/noticiaprodiver.dart';
+import 'package:tickets/screens/admin/controller_tab.dart';
 import 'package:tickets/screens/admin/editar_page.dart';
 import 'package:tickets/screens/admin/homePage.dart';
 import 'package:get/get.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         '/HomePage':(context) => new HomePage(),
         '/editarPage': (BuildContext context) => new Editar_Page(),
         '/loginPage':(context) => new Login(),
-        
+        '/controllerTab':(context) => new ControllerTab(),
         },
       debugShowCheckedModeBanner: false,
     );

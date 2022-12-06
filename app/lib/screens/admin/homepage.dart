@@ -12,9 +12,6 @@ class HomePage extends StatelessWidget {
     final noticiasProvider =  Provider.of<NoticiaProvider>(context);
 
     if(noticiasProvider.isLoading) return Scaffold(
-      appBar: AppBar(
-        title: Text('Products'),
-      ),
       body: Center(
         child: CircularProgressIndicator(
           color: Colors.indigo,
@@ -23,9 +20,6 @@ class HomePage extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('data'),
-      ),
     body: ListView.builder(
       itemCount: noticiasProvider.noticias.length,
       itemBuilder: (BuildContext context, int index)=> NoticiasCard(

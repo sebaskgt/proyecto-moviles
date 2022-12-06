@@ -18,7 +18,7 @@ class Login extends StatelessWidget {
             if (user?.email == 'trabajosdvali@gmail.com' ||
                 user?.email == 'sebastian.liquitay@sansano.usm.cl' ||
                 user?.email == 'rjm.madrid.diego@gmail.com') {
-              Navigator.of(context).pushNamed('/HomePage');
+              Navigator.of(context).pushNamed('/controllerTab');
             }
           },
           color: Colors.blue,
