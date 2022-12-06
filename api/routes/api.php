@@ -19,4 +19,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/eventos',EventosController::Class);
+// Route::apiResource('/eventos',EventosController::Class);
+Route::get('/eventos',[EventosController::class,'index']);
+Route::post('/eventos',[EventosController::class,'store']);
+Route::get('/eventos/{evento}',[EventosController::class,'show']);
+Route::put('/eventos/{evento}',[EventosController::class,'update']);
+Route::delete('/eventos/{evento}',[EventosController::class,'destroy']);
+
+Route::get('/entradas',[EntradasController::class,'index']);
+Route::post('/entradas',[EntradasController::class,'store']);
+Route::get('/entradas/{entrada}/{evento}',[EntradasController::class,'show']);
+Route::post('/entradasCompradas',[EntradasController::class,'entradasCompradas']);

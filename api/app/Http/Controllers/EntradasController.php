@@ -25,6 +25,10 @@ class EntradasController extends Controller {
         return $evento->entradas->where('numero_entrada',$entrada->numero_entrada)->first();
     }
 
+    public function entradasCompradas(Request $request) {
+        return Entrada::where('cliente_id',$request->cliente_id)->get();
+    }
+
     /*
     public function update(Request $request, Entrada $entrada) {
         $entrada->idEvento = $request->idEvento;

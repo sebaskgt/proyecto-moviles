@@ -3,11 +3,30 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-class EventosProvider {
+class EntradasProvider {
   final apiURL = 'http://10.0.2.2:8000/api';
 
   Future<List<dynamic>> getEntradas() async {
     var respuesta = await http.get(Uri.parse(apiURL + '/entradas'));
+
+    if (respuesta.statusCode == 200) {
+      return json.decode(respuesta.body);
+    } else {
+      return [];
+    }
+  }
+
+  Future<List<dynamic>> getEntradasCompradas(String cliente_id) async {
+    var respuesta = await http.post(
+      Uri.parse(apiURL + '/entradasCompradas'),
+      headers: <String, String>{
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: jsonEncode(<String, dynamic>{
+        'cliente_id': cliente_id,
+      }),
+    );
 
     if (respuesta.statusCode == 200) {
       return json.decode(respuesta.body);
