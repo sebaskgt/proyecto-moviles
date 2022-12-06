@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:app/screens/admin/homePage.dart';
+import 'package:tickets/models/noticias.dart';
+import 'package:tickets/provider/noticiaprodiver.dart';
+import 'package:tickets/screens/admin/editar_page.dart';
+import 'package:tickets/screens/admin/homePage.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:tickets/screens/admin/login.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( AppState());
 }
+class AppState extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => NoticiaProvider())
+      ],
+      child: MyApp(),
+    );
+  }
+}
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -21,7 +41,13 @@ class MyApp extends StatelessWidget {
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: Colors.indigo,elevation: 0)
       ),
-      home: HomePage(),
+      home: Login(),
+      routes: <String, WidgetBuilder> {
+        '/HomePage':(context) => new HomePage(),
+        '/editarPage': (BuildContext context) => new Editar_Page(),
+        '/loginPage':(context) => new Login(),
+        
+        },
       debugShowCheckedModeBanner: false,
     );
   }

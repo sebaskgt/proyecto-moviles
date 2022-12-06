@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tickets/models/noticias.dart';
 
 class NoticiasCard extends StatelessWidget {
-  const NoticiasCard({Key? key}) : super(key: key);
+
+  final Noticia noticia;
+  const NoticiasCard({Key? key, required this.noticia}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +20,9 @@ class NoticiasCard extends StatelessWidget {
           Column(
             children: [
               SizedBox(height: 2,),
-              Row(children: [_titulo()],),
+              Row(children: [_titulo(Text(noticia.titulo), titulo: noticia.titulo,)],),
               SizedBox(height: 5,),
-              _desarrollo(),
+              _desarrollo(Text(noticia.desarrollo), desarrollo: noticia.desarrollo,),
               _fecha(),
             ],
           )
@@ -44,13 +48,14 @@ class NoticiasCard extends StatelessWidget {
 }
 
 class _titulo extends StatelessWidget {
-  const _titulo({Key? key,}) : super(key: key);
+  final String titulo;
+  const _titulo(Text text, {required this.titulo});
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Center(
         child: Container(
-          child: Center(child: Text('NOTICIA',style: TextStyle(color: Colors.grey[150],fontSize: 15,fontWeight: FontWeight.bold),)),
+          child: Center(child: Text(titulo,style: TextStyle(color: Colors.grey[150],fontSize: 15,fontWeight: FontWeight.bold),)),
         ),
       ),
     );
@@ -59,11 +64,13 @@ class _titulo extends StatelessWidget {
 
 
 class _desarrollo extends StatelessWidget {
-  const _desarrollo({Key? key,}) : super(key: key);
+  final String desarrollo;
+  const _desarrollo(Text text, {required this.desarrollo});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(child: Text('La calle es una selva de cemento Y de fieras salvajes, cómo noYa no hay quien salga loco de contento Donde quiera te espera lo peor Donde quiera te espera lo peorJuanito Alimaña con mucha maña llega al mostrador',style: TextStyle(color: Colors.grey[125],fontSize: 15),)),
+      child: Center(child: Text(desarrollo,style: TextStyle(color: Colors.grey[125],fontSize: 15),)),
     );
   }
 }
@@ -75,7 +82,7 @@ class _fecha extends StatelessWidget {
     return Expanded(
       child: Center(
         child: Container(
-          child: Center(child: Text('Fecha de noticia: 00/00/0000',style: TextStyle(color: Colors.grey[125],fontSize: 15),)),
+          child: Center(child: Text('',style: TextStyle(color: Colors.grey[125],fontSize: 15),)),
         ),
       ),
     );

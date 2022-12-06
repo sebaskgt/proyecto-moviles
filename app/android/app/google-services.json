@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "744425829103",
+    "firebase_url": "https://flutterproyectodam-default-rtdb.firebaseio.com",
+    "project_id": "flutterproyectodam",
+    "storage_bucket": "flutterproyectodam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744425829103:android:8b69266f911d55eca8211a",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744425829103-7iui6od4i150rm4ao3gg6p3646rbihqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0rSjzZFDydVf_2g3-YDKLswpXhnVC8MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744425829103-7iui6od4i150rm4ao3gg6p3646rbihqr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
