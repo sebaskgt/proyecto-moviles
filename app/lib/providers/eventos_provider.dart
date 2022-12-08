@@ -89,7 +89,7 @@ class EventosProvider {
     String idEvento_nuevo,
     String nombre,
     String descripcion,
-    DateTime fecha_evento,
+    String fecha_evento,
     int entradas,
     int precio,
   ) async {
@@ -104,7 +104,7 @@ class EventosProvider {
         'nombre': nombre,
         'descripcion': descripcion,
         'estado': 'VIGENTE',
-        'fecha_evento': fecha_evento,
+        'fechaEvento': fecha_evento,
         'entradas': entradas,
         'precio': precio,
       }),
