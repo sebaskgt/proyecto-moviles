@@ -7,24 +7,21 @@ import 'package:tickets/screens/admin/homePage.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:tickets/screens/admin/login.dart';
+import 'package:tickets/screens/cliente/eventos_listar_page.dart';
 
 void main() {
-  runApp( AppState());
+  runApp(AppState());
 }
-class AppState extends StatelessWidget {
 
+class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => NoticiaProvider())
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => NoticiaProvider())],
       child: MyApp(),
     );
   }
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -35,20 +32,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: Color(0xFFcfccbb),
-        appBarTheme:AppBarTheme(
-          elevation: 0,
-          color: Color(0xFF5d544d),
-        ),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: Colors.indigo,elevation: 0)
-      ),
+          scaffoldBackgroundColor: Color(0xFFcfccbb),
+          appBarTheme: AppBarTheme(
+            elevation: 0,
+            color: Color(0xFF5d544d),
+          ),
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+              backgroundColor: Colors.indigo, elevation: 0)),
       home: Login(),
-      routes: <String, WidgetBuilder> {
-        '/HomePage':(context) => new HomePage(),
+      routes: <String, WidgetBuilder>{
+        '/HomePage': (context) => new HomePage(),
         '/editarPage': (BuildContext context) => new Editar_Page(),
-        '/loginPage':(context) => new Login(),
-        '/controllerTab':(context) => new ControllerTab(),
-        },
+        '/loginPage': (context) => new Login(),
+        '/controllerTab': (context) => new ControllerTab(),
+        '/eventosPage': (context) => new EventosListarPage(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }

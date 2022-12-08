@@ -18,10 +18,10 @@ class Evento extends Model
     protected $appends = ['entradas_vendidas'];
 
     public function entradas() {
-        return $this->hasMany(Entrada::class,'numero_entrada');
+       return $this->hasMany(Entrada::class,'numero_entrada');
     }
 
     public function getEntradasVendidasAttribute() {
-        return $this->entradas->count();
+       return $this->entradas->count();
     }
 }
