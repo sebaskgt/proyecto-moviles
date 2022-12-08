@@ -10,7 +10,7 @@ use App\Http\Requests\EventoRequest;
 class EventosController extends Controller {
 
     public function index() {
-        return Evento::all()->load('entradas');
+        return Evento::all()->load('entradasR');
     }
 
     public function store(EventosRequest $request) {
