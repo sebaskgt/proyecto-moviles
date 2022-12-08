@@ -22,6 +22,6 @@ class Evento extends Model
     }
 
     public function getEntradasVendidasAttribute() {
-       return $this->entradas->count();
+       return $this->entradas()->count();
     }
 }
