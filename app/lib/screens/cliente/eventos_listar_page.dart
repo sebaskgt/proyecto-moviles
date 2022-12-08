@@ -58,7 +58,7 @@ class _EventosListarPageState extends State<EventosListarPage> {
                 onDismissed: (direction) {
                   MaterialPageRoute route = MaterialPageRoute(
                       builder: (context) => EntradasAgregarPage(
-                          evento['idEvento'], evento['entradasVendidas'] + 1));
+                          evento['idEvento'], evento['entradas_vendidas'] + 1));
                   Navigator.push(context, route)
                       .then((value) => setState(() {}));
                 },
