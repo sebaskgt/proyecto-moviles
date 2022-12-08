@@ -15,13 +15,13 @@ class Evento extends Model
     public $incrementing = false;
     protected $keyType = 'string';
     public $timestamps = false;
-    protected $appends = ['entradas_vendidas'];
+    //protected $appends = ['entradas_vendidas'];
 
-    public function entradas() {
-        return $this->hasMany(Entrada::class,'numero_entrada');
-    }
+    //public function entradas() {
+    //    return $this->hasMany(Entrada::class,'numero_entrada');
+    //}
 
-    public function getEntradasVendidasAttribute() {
-        return count($this->entradas);
-    }
+    //public function getEntradasVendidasAttribute() {
+    //    return count($this->entradas);
+    //}
 }

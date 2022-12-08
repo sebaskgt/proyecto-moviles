@@ -16,7 +16,7 @@ class Login extends StatelessWidget {
             User? user = await Loginv1.iniciarSesion(context: context);
 
             if (user?.email == 'trabajosdvali@gmail.com' ||
-                user?.email == 'sebastian.liquitay@sansano.usm.cl' ||
+                user?.email == 'liquitay2010@gmail.com' ||
                 user?.email == 'rjm.madrid.diego@gmail.com') {
               Navigator.of(context).pushNamed('/controllerTab');
             }

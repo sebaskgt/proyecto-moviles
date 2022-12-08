@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('estado');
-            $table->date('fechaEvento');
+            $table->String('fechaEvento');
             $table->integer('entradas');
             $table->integer('precio');
             $table->softDeletes();

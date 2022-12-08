@@ -18,8 +18,7 @@ class EventosProvider {
       String idEvento,
       String nombre,
       String descripcion,
-      String estado,
-      DateTime fecha_evento,
+      String fecha_evento,
       int entradas,
       int precio) async {
     var respuesta = await http.post(
@@ -32,8 +31,8 @@ class EventosProvider {
         'idEvento': idEvento,
         'nombre': nombre,
         'descripcion': descripcion,
-        'estado': estado,
-        'fecha_evento': fecha_evento,
+        'estado': 'VIGENTE',
+        'fechaEvento': fecha_evento,
         'entradas': entradas,
         'precio': precio,
       }),
@@ -57,12 +56,39 @@ class EventosProvider {
     }
   }
 
+  Future<LinkedHashMap<String, dynamic>> editarEstado(
+    String idEvento_actual,
+    String nombre,
+    String descripcion,
+    String fecha_evento,
+    int entradas,
+    int precio,
+  ) async {
+    var respuesta = await http.put(
+      Uri.parse(apiURL + '/eventos/' + idEvento_actual),
+      headers: <String, String>{
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: jsonEncode(<String, dynamic>{
+        'idEvento': idEvento_actual,
+        'nombre': nombre,
+        'descripcion': descripcion,
+        'estado': 'EXPIRADO',
+        'fechaEvento': fecha_evento,
+        'entradas': entradas,
+        'precio': precio,
+      }),
+    );
+
+    return json.decode(respuesta.body);
+  }
+
   Future<LinkedHashMap<String, dynamic>> editarEvento(
     String idEvento_actual,
     String idEvento_nuevo,
     String nombre,
     String descripcion,
-    String estado,
     DateTime fecha_evento,
     int entradas,
     int precio,
@@ -77,7 +103,7 @@ class EventosProvider {
         'idEvento': idEvento_nuevo,
         'nombre': nombre,
         'descripcion': descripcion,
-        'estado': estado,
+        'estado': 'VIGENTE',
         'fecha_evento': fecha_evento,
         'entradas': entradas,
         'precio': precio,
