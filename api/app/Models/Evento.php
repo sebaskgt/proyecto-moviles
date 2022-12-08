@@ -17,11 +17,11 @@ class Evento extends Model
     public $timestamps = false;
     protected $appends = ['entradas_vendidas'];
 
-    public function entradas() {
+    public function entradasR() {
        return $this->hasMany(Entrada::class,'numero_entrada');
     }
 
     public function getEntradasVendidasAttribute() {
-       return $this->entradas()->count();
+       return $this->entradasR()->count();
     }
 }
