@@ -17,7 +17,6 @@ class _VistaUsuarioState extends State<VistaUsuario> {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   static GoogleSignIn _googleSignIn = GoogleSignIn();
   Widget build(BuildContext context) {
-
     return Container(
       child: Center(
         child: ElevatedButton(

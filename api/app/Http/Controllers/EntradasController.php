@@ -22,11 +22,11 @@ class EntradasController extends Controller {
     }
 
     public function show(Entrada $entrada, Evento $evento) {
-        return $evento->entradas->where('numero_entrada',$entrada->numero_entrada)->first();
+        return Entrada::where('numero_entrada',$entrada->numero_entrada)->where('idEvento',$evento->idEvento)->first()->load('evento');
     }
 
     public function entradasCompradas(Request $request) {
-        return Entrada::where('cliente_id',$request->cliente_id)->get();
+        return Entrada::where('cliente_id',$request->cliente_id)->get()->load('evento');
     }
 
     /*

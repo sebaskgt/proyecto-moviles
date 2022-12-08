@@ -7,6 +7,7 @@ import 'package:tickets/screens/admin/homePage.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:tickets/screens/admin/login.dart';
+import 'package:tickets/screens/cliente/entradas_listar_page.dart';
 import 'package:tickets/screens/cliente/eventos_listar_page.dart';
 
 void main() {
@@ -45,7 +46,8 @@ class MyApp extends StatelessWidget {
         '/editarPage': (BuildContext context) => new Editar_Page(),
         '/loginPage': (context) => new Login(),
         '/controllerTab': (context) => new ControllerTab(),
-        '/eventosPage': (context) => new EventosListarPage(),
+        //'/listarEntradas': (context) => new EntradasListarPage(),
+        //'/eventosPage': (context) => new EventosListarPage(),
       },
       debugShowCheckedModeBanner: false,
     );

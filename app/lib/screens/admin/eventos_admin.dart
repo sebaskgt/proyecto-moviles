@@ -29,6 +29,7 @@ class _EventosAdminState extends State<EventosAdmin> {
             itemCount: snap.data.length,
             itemBuilder: (context, index) {
               var evento = snap.data[index];
+              int vendidas = evento['entradas_vendidas'];
               Color color =
                   evento['estado'] == 'VIGENTE' ? Colors.green : Colors.red;
               return Padding(
@@ -85,9 +86,7 @@ class _EventosAdminState extends State<EventosAdmin> {
                               evento['fechaEvento'],
                               evento['entradas'],
                               evento['precio']);
-                          if (respuesta['message'] != null) {
-                            print(respuesta['message']);
-                          }
+                          if (respuesta['message'] != null) {}
                           setState(() {});
                         },
                         backgroundColor: Colors.orange,
@@ -106,16 +105,18 @@ class _EventosAdminState extends State<EventosAdmin> {
                     trailing: Column(
                       children: [
                         Text('Entradas: ${evento['entradas']}'),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        SizedBox(height: 2.5),
                         Text(
                           'Estado: ${evento['estado']}',
                           style: TextStyle(
                               color: color,
                               fontSize: 16,
                               fontWeight: FontWeight.bold),
-                        )
+                        ),
+                        SizedBox(
+                          height: 2.5,
+                        ),
+                        Text('Entradas Vendidas: ${vendidas}')
                       ],
                     ),
                   ),

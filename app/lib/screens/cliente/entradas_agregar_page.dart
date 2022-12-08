@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tickets/providers/entradas_provider.dart';
 import 'package:tickets/providers/eventos_provider.dart';
+
+import '../admin/loginv1.dart';
 
 class EntradasAgregarPage extends StatefulWidget {
   String idEvento;
@@ -46,10 +49,11 @@ class _EntradasAgregarPageState extends State<EntradasAgregarPage> {
                     Container(
                         child: Text('Descripción: ' + evento['descripcion'])),
                     Container(
-                        child: Text(
-                            'Cantidad de entradas: ' + evento['entradas'])),
+                        child: Text('Cantidad de entradas: ' +
+                            evento['entradas'].toString())),
                     Container(
-                      child: Text('Valor de entrada: ' + evento['precio']),
+                      child: Text(
+                          'Valor de entrada: ' + evento['precio'].toString()),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 10),
@@ -66,12 +70,14 @@ class _EntradasAgregarPageState extends State<EntradasAgregarPage> {
                           ],
                         ),
                         onPressed: () async {
+                          User? user =
+                              await Loginv1.iniciarSesion(context: context);
                           //enviar por post al api
                           await EntradasProvider().agregarEntrada(
                             widget.idEvento,
                             widget.numero_entrada,
                             // Falta obtener el id del usuario
-                            "ID USUARIO",
+                            user!.uid,
                           );
 
                           Navigator.pop(context);

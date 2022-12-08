@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tickets/providers/eventos_provider.dart';
 import 'package:tickets/screens/cliente/entradas_agregar_page.dart';
 
+import '../admin/loginv1.dart';
+
 class EventosListarPage extends StatefulWidget {
-  const EventosListarPage({Key? key}) : super(key: key);
+  String iduser;
+  EventosListarPage(this.iduser, {Key? key}) : super(key: key);
 
   @override
   State<EventosListarPage> createState() => _EventosListarPageState();
@@ -12,6 +16,7 @@ class EventosListarPage extends StatefulWidget {
 class _EventosListarPageState extends State<EventosListarPage> {
   @override
   Widget build(BuildContext context) {
+    final Future<User?> user = Loginv1.iniciarSesion(context: context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Eventos'),
@@ -30,8 +35,15 @@ class _EventosListarPageState extends State<EventosListarPage> {
             itemCount: snapshot.data.length,
             itemBuilder: (context, index) {
               var evento = snapshot.data[index];
+              int cont = 0;
+              while (cont < evento['entradas_r'].length) {
+                if (evento['entradas_r'][cont]['cliente_id'] == widget.iduser) {
+                  return Container();
+                }
+                cont = cont + 1;
+              }
               return Dismissible(
-                key: ObjectKey(evento),
+                key: UniqueKey(),
                 direction: DismissDirection.endToStart,
                 background: Container(
                   color: Colors.blue,
