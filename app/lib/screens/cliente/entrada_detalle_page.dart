@@ -30,36 +30,41 @@ class _EntradaDetallePageState extends State<EntradaDetallePage> {
               );
             }
             var evento = snap.data;
-            return Container(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Text(
-                    'Numero de entrada: ${widget.numero_entrada}',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    '${evento['nombre']}',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                  ),
-                  Text(
-                    '${evento['descripcion']}',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Text('Estado del Evento: ${evento['estado']}'),
-                  SizedBox(
-                    height: 300,
-                  ),
-                  Text('Fecha del evento: ${evento['fechaEvento']}'),
-                  QrImage(
-                    data: 'http://www.usmentradas.cl/${widget.numero_entrada}',
-                    size: 200,
-                  )
-                ],
+            return Center(
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    Text(
+                      'Numero de entrada: ${widget.numero_entrada}',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    Text(
+                      '${evento['nombre']}',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                    Text(
+                      '${evento['descripcion']}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text('Estado del Evento: ${evento['estado']}'),
+                    SizedBox(
+                      height: 300,
+                    ),
+                    Text('Fecha del evento: ${evento['fechaEvento']}'),
+                    QrImage(
+                      data:
+                          'http://www.usmentradas.cl/${widget.numero_entrada}',
+                      size: 200,
+                    )
+                  ],
+                ),
               ),
             );
           },

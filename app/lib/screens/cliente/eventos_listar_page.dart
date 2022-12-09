@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tickets/providers/eventos_provider.dart';
 import 'package:tickets/screens/cliente/entradas_agregar_page.dart';
 
@@ -14,9 +15,10 @@ class EventosListarPage extends StatefulWidget {
 }
 
 class _EventosListarPageState extends State<EventosListarPage> {
+  final fPrecio =
+      NumberFormat.currency(decimalDigits: 0, locale: 'es-CL', symbol: '');
   @override
   Widget build(BuildContext context) {
-    final Future<User?> user = Loginv1.iniciarSesion(context: context);
     return Scaffold(
       body: FutureBuilder(
         future: EventosProvider().getEventos(),
@@ -75,6 +77,8 @@ class _EventosListarPageState extends State<EventosListarPage> {
                   leading: Icon(Icons.event),
                   title: Text(evento['nombre']),
                   subtitle: Text(evento['fechaEvento']),
+                  trailing: Text(
+                      'Precio entrada: \$' + fPrecio.format(evento['precio'])),
                 ),
               );
             },

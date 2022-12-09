@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tickets/providers/entradas_provider.dart';
 import 'package:tickets/providers/eventos_provider.dart';
 
@@ -16,6 +17,8 @@ class EntradasAgregarPage extends StatefulWidget {
 }
 
 class _EntradasAgregarPageState extends State<EntradasAgregarPage> {
+  final fPrecio =
+      NumberFormat.currency(decimalDigits: 0, locale: 'es-CL', symbol: '');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,8 +55,8 @@ class _EntradasAgregarPageState extends State<EntradasAgregarPage> {
                         child: Text('Cantidad de entradas: ' +
                             evento['entradas'].toString())),
                     Container(
-                      child: Text(
-                          'Valor de entrada: ' + evento['precio'].toString()),
+                      child: Text('Valor de entrada: \$' +
+                          fPrecio.format(evento['precio'])),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 10),

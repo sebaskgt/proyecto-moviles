@@ -31,9 +31,9 @@ class _EntradasListarPageState extends State<EntradasListarPage> {
               var entrada = snapshot.data[index];
               return ListTile(
                 leading: Icon(Icons.event),
-                title: Text(entrada['numero_entrada'].toString()),
-                subtitle: Text(entrada['idEvento']),
-                trailing: Text('Estado: ${entrada['evento']['estado']}'),
+                title: Text(entrada['evento']['nombre']),
+                subtitle: Text('Codigo: ${entrada['evento']['idEvento']}'),
+                trailing: Text('Estado: ${entrada['evento']['estado']} '),
                 onTap: (() {
                   MaterialPageRoute route = MaterialPageRoute(
                       builder: (context) => EntradaDetallePage(widget.name,
