@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tickets/providers/eventos_provider.dart';
 import 'package:tickets/screens/cliente/entradas_agregar_page.dart';
 
-import '../admin/loginv1.dart';
+import '../loginv1.dart';
 
 class EventosListarPage extends StatefulWidget {
   String iduser;
@@ -18,9 +18,6 @@ class _EventosListarPageState extends State<EventosListarPage> {
   Widget build(BuildContext context) {
     final Future<User?> user = Loginv1.iniciarSesion(context: context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Eventos'),
-      ),
       body: FutureBuilder(
         future: EventosProvider().getEventos(),
         builder: (context, AsyncSnapshot snapshot) {

@@ -6,7 +6,8 @@ import 'package:tickets/screens/admin/editar_page.dart';
 import 'package:tickets/screens/admin/homePage.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:tickets/screens/admin/login.dart';
+import 'package:tickets/screens/cliente/tab_cliente.dart';
+import 'package:tickets/screens/login.dart';
 import 'package:tickets/screens/cliente/entradas_listar_page.dart';
 import 'package:tickets/screens/cliente/eventos_listar_page.dart';
 
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         '/controllerTab': (context) => new ControllerTab(),
         //'/listarEntradas': (context) => new EntradasListarPage(),
         //'/eventosPage': (context) => new EventosListarPage(),
+        //'/tabcliente': (context) => new TabCliente(),
       },
       debugShowCheckedModeBanner: false,
     );

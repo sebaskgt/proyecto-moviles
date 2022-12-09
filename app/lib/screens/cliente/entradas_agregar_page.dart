@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tickets/providers/entradas_provider.dart';
 import 'package:tickets/providers/eventos_provider.dart';
 
-import '../admin/loginv1.dart';
+import '../loginv1.dart';
 
 class EntradasAgregarPage extends StatefulWidget {
   String idEvento;

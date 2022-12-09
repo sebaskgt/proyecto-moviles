@@ -15,9 +15,6 @@ class _EntradasListarPageState extends State<EntradasListarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Entradas Compradas'),
-      ),
       body: FutureBuilder(
         future: EntradasProvider().getEntradasCompradas(widget.iduser),
         builder: (context, AsyncSnapshot snapshot) {
